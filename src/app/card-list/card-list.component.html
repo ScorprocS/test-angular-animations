@@ -1,0 +1,18 @@
+<h2>Angular Material Cards Fade In Fade Out Animation</h2>
+
+<div
+  [@listAnimation]="items().length"
+  [@.disabled]="!annimationEnambled()"
+  (@listAnimation.done)="onAnimationEndEvent($event)"
+
+  style="display: flex;flex-wrap: wrap;flex-direction: row;gap:10px"
+>
+@for(item of items();track item.id){
+  <mat-card class="mat-card">
+    <mat-card-content>{{item.title}}</mat-card-content>
+    
+    <mat-card-actions> <button mat-raised-button color="primary" [routerLink]="['/list', item.id]" routerLinkActive="router-link-active">View</button></mat-card-actions>
+  </mat-card>
+}
+  
+</div>
